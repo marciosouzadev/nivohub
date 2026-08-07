@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Nivo Hub – Conecte. Inove. Evolua.</title>
-<meta name="description" content="Smartphones, acessórios, presentes e tecnologia com atendimento de confiança." />
+<title>Nivo Hub | Smartphones novos e seminovos em Curitiba</title>
+<meta name="description" content="Nivo Hub: smartphones novos e seminovos, tecnologia, acessórios e atendimento de confiança em Curitiba. Acompanhe nosso Instagram e conheça as novidades." />
 <link rel="canonical" href="https://nivohub.vercel.app/" />
 
 <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -16,16 +16,16 @@
 <meta property="og:site_name" content="Nivo Hub" />
 <meta property="og:locale" content="pt_BR" />
 <meta property="og:url" content="https://nivohub.vercel.app/" />
-<meta property="og:title" content="Nivo Hub – Conecte. Inove. Evolua." />
-<meta property="og:description" content="Smartphones, acessórios, presentes e tecnologia com atendimento de confiança." />
+<meta property="og:title" content="Nivo Hub | Smartphones novos e seminovos em Curitiba" />
+<meta property="og:description" content="Nivo Hub: smartphones novos e seminovos, tecnologia, acessórios e atendimento de confiança em Curitiba. Acompanhe nosso Instagram e conheça as novidades." />
 <meta property="og:image" content="https://nivohub.vercel.app/og-image.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="Nivo Hub – Conecte. Inove. Evolua." />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Nivo Hub – Conecte. Inove. Evolua." />
-<meta name="twitter:description" content="Smartphones, acessórios, presentes e tecnologia com atendimento de confiança." />
+<meta name="twitter:title" content="Nivo Hub | Smartphones novos e seminovos em Curitiba" />
+<meta name="twitter:description" content="Nivo Hub: smartphones novos e seminovos, tecnologia, acessórios e atendimento de confiança em Curitiba. Acompanhe nosso Instagram e conheça as novidades." />
 <meta name="twitter:image" content="https://nivohub.vercel.app/og-image.jpg" />
 <meta name="twitter:image:alt" content="Nivo Hub – Conecte. Inove. Evolua." />
 <style>
@@ -107,6 +107,9 @@ h1,h2,h3{font-family:'Archivo',system-ui,sans-serif;font-weight:700;margin:0;tex
 .btn:hover{background:var(--accent);border-color:var(--accent);color:#fff;}
 .btn:active{transform:scale(.97);}
 .btn:focus-visible{border-radius:8px;}
+.btn-secondary{background:transparent;color:var(--ink);border-color:var(--line-strong,rgba(255,255,255,0.22));}
+.btn-secondary:hover{background:var(--tint);border-color:var(--ink);color:var(--ink);}
+.btn-sm{padding:9px 18px;font-size:13.5px;border-radius:7px;}
 
 .link-arrow{
   display:inline-flex;align-items:baseline;gap:6px;
@@ -130,10 +133,10 @@ header.is-scrolled{border-bottom-color:var(--line);}
 .brand{display:flex;align-items:center;gap:11px;}
 .brand img{width:30px;height:30px;border-radius:50%;flex:none;}
 .brand-word{font-family:'Archivo',sans-serif;font-weight:700;font-size:15.5px;letter-spacing:0.01em;}
-.nav-links{display:flex;align-items:center;gap:32px;}
-.nav-links a{font-size:14px;color:var(--ink-soft);}
-.nav-links a:hover{color:var(--ink);}
-.nav-links .ig{color:var(--ink);font-weight:600;}
+.nav-links{display:flex;align-items:center;gap:26px;}
+.nav-links a:not(.btn){font-size:14px;color:var(--ink-soft);}
+.nav-links a:not(.btn):hover{color:var(--ink);}
+.nav-cta{margin-left:2px;}
 
 .nav-toggle{
   display:none;background:none;border:none;color:var(--ink);padding:6px;margin:-6px;
@@ -157,6 +160,15 @@ header.is-scrolled{border-bottom-color:var(--line);}
 .mobile-menu.open{opacity:1;transform:translateY(0) scale(1);pointer-events:auto;}
 .mobile-menu a{display:block;padding:11px 12px;border-radius:6px;font-size:14.5px;color:var(--ink-soft);transition:background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);}
 .mobile-menu a:hover,.mobile-menu a:focus-visible{background:var(--tint);color:var(--ink);box-shadow:none;}
+.mobile-menu a.cta{color:var(--accent);font-weight:700;}
+.mobile-menu .menu-div{height:1px;background:var(--line);margin:4px 2px;}
+
+.hero-meta{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:18px;}
+.hero-meta .eyebrow{margin:0;}
+.hero-status{position:relative;padding-left:15px;font-size:13px;color:var(--ink-soft);}
+.hero-status::before{content:'';position:absolute;left:0;top:50%;width:6px;height:6px;margin-top:-3px;border-radius:50%;background:var(--accent);animation:pulse-dot 2.4s var(--ease-in-out) infinite;}
+@keyframes pulse-dot{0%,100%{opacity:1;}50%{opacity:.35;}}
+@media (prefers-reduced-motion: reduce){.hero-status::before{animation:none;}}
 
 .hero{padding:104px 0 96px;}
 .hero-grid{display:grid;grid-template-columns:1.2fr 0.8fr;gap:64px;align-items:center;}
@@ -203,6 +215,24 @@ section{padding:88px 0;}
 .rowlist-item strong{display:block;font-size:15px;font-weight:700;color:var(--ink);margin-bottom:6px;}
 .rowlist-item p{margin:0;font-size:14px;color:var(--ink-soft);line-height:1.6;}
 
+.trust-intro{font-size:16.5px;color:var(--ink-soft);max-width:52ch;margin:0;}
+.trust-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:36px 32px;margin-top:44px;}
+
+.feature-panel{border:1px solid var(--line);border-radius:20px;padding:52px;}
+.feature-panel h2{font-size:clamp(22px,2.8vw,30px);margin-bottom:14px;max-width:22ch;}
+.feature-panel p{margin:0;color:var(--ink-soft);font-size:15.5px;max-width:48ch;}
+.feature-panel .link-arrow{margin-top:26px;}
+.feature-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px;}
+.feature-tag{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);border:1px solid var(--line);border-radius:999px;padding:6px 13px;}
+.feature-split{display:grid;grid-template-columns:1.3fr 0.7fr;gap:44px;align-items:center;}
+.feature-aside{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:16px;border-left:1px solid var(--line);padding-left:44px;}
+.feature-aside .handle{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(26px,3.4vw,34px);color:var(--accent);}
+
+.brand-statement .lede{font-size:clamp(20px,2.4vw,26px);max-width:46ch;color:var(--ink);margin:0 0 48px;font-weight:500;}
+.brand-steps{display:flex;flex-direction:column;gap:6px;margin-bottom:36px;}
+.brand-steps p{font-family:'Archivo',sans-serif;font-weight:700;font-size:clamp(22px,3.6vw,36px);line-height:1.4;color:var(--ink);margin:0;}
+.brand-statement .complement{color:var(--ink-soft);font-size:15px;max-width:40ch;margin:0;}
+
 .cta-band{
   border-top:1px solid var(--line);border-bottom:1px solid var(--line);
   padding:72px 0;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;
@@ -215,6 +245,7 @@ footer{padding:48px 0 36px;}
 .foot-brand{display:flex;align-items:center;gap:11px;}
 .foot-brand img{width:28px;height:28px;border-radius:50%;}
 .foot-word{font-family:'Archivo',sans-serif;font-size:15px;font-weight:700;}
+.foot-tag{font-size:12.5px;color:var(--ink-mute);margin-top:2px;}
 .foot-links{display:flex;gap:26px;align-items:center;font-size:13.5px;color:var(--ink-soft);flex-wrap:wrap;}
 .foot-links a:hover{color:var(--ink);}
 .foot-copy{width:100%;text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--line-soft);font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-mute);letter-spacing:0.04em;}
@@ -249,12 +280,19 @@ footer{padding:48px 0 36px;}
   .rowlist{grid-template-columns:1fr;gap:28px;}
   .cta-band{padding:48px 0;flex-direction:column;align-items:flex-start;}
   .nav-links{gap:20px;}
+  .feature-panel{padding:32px 24px;border-radius:16px;}
+  .feature-split{grid-template-columns:1fr;gap:28px;}
+  .feature-aside{border-left:none;border-top:1px solid var(--line);padding-left:0;padding-top:24px;align-items:flex-start;}
+  .trust-grid{grid-template-columns:repeat(2,1fr);gap:28px 20px;}
+  .hero-ctas .btn,.hero-ctas .btn-secondary{width:100%;}
 }
 @media (max-width:520px){
   .wrap{padding:0 20px;}
   .nav{padding:16px 20px;}
   .nav-links{display:none;}
   .nav-toggle{display:inline-flex;}
+  .trust-grid{grid-template-columns:1fr;}
+  .hero-ctas{flex-direction:column;align-items:stretch;}
 }
 @media (min-width:521px){
   .mobile-menu{display:none;}
@@ -274,16 +312,21 @@ footer{padding:48px 0 36px;}
       <span class="brand-word">Nivo Hub</span>
     </div>
     <nav class="nav-links">
+      <a href="#o-que-encontra">O que você encontra</a>
       <a href="#como-funciona">Como funciona</a>
-      <a class="ig" href="https://instagram.com/nivohub_" target="_blank" rel="noopener">@nivohub_</a>
+      <a href="https://instagram.com/nivohub_" target="_blank" rel="noopener">Instagram</a>
+      <a class="btn btn-sm nav-cta" href="https://wa.me/5547995106928?text=Oi%21%20Vi%20a%20Nivo%20Hub%20e%20queria%20saber%20mais." target="_blank" rel="noopener">Falar no WhatsApp</a>
     </nav>
     <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Abrir menu">
       <svg class="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       <svg class="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
     </button>
     <div class="mobile-menu" id="mobileMenu">
+      <a href="#o-que-encontra">O que você encontra</a>
       <a href="#como-funciona">Como funciona</a>
-      <a class="ig" href="https://instagram.com/nivohub_" target="_blank" rel="noopener">@nivohub_ no Instagram</a>
+      <a href="https://instagram.com/nivohub_" target="_blank" rel="noopener">Instagram</a>
+      <div class="menu-div"></div>
+      <a class="cta" href="https://wa.me/5547995106928?text=Oi%21%20Vi%20a%20Nivo%20Hub%20e%20queria%20saber%20mais." target="_blank" rel="noopener">Falar no WhatsApp</a>
     </div>
   </div>
 </header>
@@ -292,12 +335,15 @@ footer{padding:48px 0 36px;}
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <span class="eyebrow hero-enter" style="animation-delay:0ms">Nivo Hub · Curitiba/PR</span>
-        <h1 class="hero-enter" style="animation-delay:60ms">Smartphones novos e seminovos, prontos pra sua próxima <span class="accent">versão</span>.</h1>
-        <p class="hero-enter" style="animation-delay:120ms">Presentes, acessórios e tecnologia com garantia e atendimento de confiança. A loja está abrindo em breve — siga de perto pra não perder o lançamento.</p>
+        <div class="hero-meta hero-enter" style="animation-delay:0ms">
+          <span class="eyebrow">Curitiba · PR</span>
+          <span class="hero-status">A Nivo Hub está chegando</span>
+        </div>
+        <h1 class="hero-enter" style="animation-delay:60ms">Seu próximo smartphone está <span class="accent">aqui.</span></h1>
+        <p class="hero-enter" style="animation-delay:120ms">iPhones e smartphones novos e seminovos, revisados e com garantia. Tecnologia sem complicação, direto com quem entende.</p>
         <div class="hero-ctas hero-enter" style="animation-delay:180ms">
-          <a class="btn" href="https://instagram.com/nivohub_" target="_blank" rel="noopener">Seguir no Instagram</a>
-          <a class="link-arrow" href="https://instagram.com/nivohub_" target="_blank" rel="noopener">é só chegar no direct <b>@nivohub_</b> <span class="arrow">→</span></a>
+          <a class="btn" href="https://instagram.com/nivohub_" target="_blank" rel="noopener">Acompanhar no Instagram</a>
+          <a class="btn btn-secondary" href="https://wa.me/5547995106928?text=Oi%21%20Vi%20a%20Nivo%20Hub%20e%20queria%20saber%20mais." target="_blank" rel="noopener">Falar pelo WhatsApp</a>
         </div>
       </div>
       <div class="emblem-stage hero-enter" style="animation-delay:120ms">
@@ -306,28 +352,28 @@ footer{padding:48px 0 36px;}
     </div>
   </section>
 
-  <section style="padding-top:0;">
+  <section id="o-que-encontra" style="padding-top:0;">
     <div class="wrap">
       <div class="section-head reveal">
         <span class="eyebrow">O que você encontra</span>
-        <h2>Tudo o que você espera de uma loja de tecnologia — em um só lugar.</h2>
+        <h2>O essencial, escolhido com cuidado.</h2>
       </div>
       <div class="cat-list">
         <div class="cat-row reveal" style="--reveal-delay:0ms">
           <h3>Smartphones</h3>
-          <p>Novos e seminovos, testados e liberados com garantia real antes de chegar até você.</p>
+          <p>iPhones e smartphones novos e seminovos, escolhidos com cuidado e revisados antes de chegar até você.</p>
         </div>
         <div class="cat-row reveal" style="--reveal-delay:60ms">
-          <h3>Presentes</h3>
-          <p>Ideias de presente em tecnologia pra qualquer ocasião, do bolso ao orçamento.</p>
+          <h3>Áudio</h3>
+          <p>AirPods, Galaxy Buds, JBL e outras opções para ouvir suas músicas com qualidade.</p>
         </div>
         <div class="cat-row reveal" style="--reveal-delay:120ms">
           <h3>Acessórios</h3>
-          <p>Capinhas, carregadores, fones e tudo pra manter seu aparelho sempre no ponto.</p>
+          <p>Itens para proteger, carregar e complementar seu smartphone.</p>
         </div>
         <div class="cat-row reveal" style="--reveal-delay:180ms">
-          <h3>Tecnologia</h3>
-          <p>Gadgets e novidades pra quem quer estar sempre um passo à frente.</p>
+          <h3>Smartwatches</h3>
+          <p>Apple Watch, Galaxy Watch e outros dispositivos para acompanhar sua rotina.</p>
         </div>
       </div>
     </div>
@@ -335,19 +381,47 @@ footer{padding:48px 0 36px;}
 
   <section>
     <div class="wrap">
-      <div class="rowlist">
+      <div class="section-head reveal">
+        <span class="eyebrow">Confiança</span>
+        <h2>Comprar um seminovo pode ser tranquilo.</h2>
+        <p class="trust-intro">Na Nivo Hub, cada aparelho passa por uma avaliação antes de chegar até você.</p>
+      </div>
+      <div class="trust-grid">
         <div class="rowlist-item reveal" style="--reveal-delay:0ms">
-          <strong>Garantia em cada aparelho</strong>
-          <p>Sem letra miúda: seminovo com garantia é seminovo com garantia.</p>
+          <strong>Aparelho testado</strong>
+          <p>Verificamos o funcionamento e o estado geral do aparelho.</p>
         </div>
         <div class="rowlist-item reveal" style="--reveal-delay:60ms">
-          <strong>Atendimento de confiança</strong>
-          <p>Do primeiro direct até a entrega, alguém de verdade te responde.</p>
+          <strong>IMEI conferido</strong>
+          <p>Mais segurança e transparência antes da compra.</p>
         </div>
         <div class="rowlist-item reveal" style="--reveal-delay:120ms">
-          <strong>Seminovos revisados</strong>
-          <p>Cada aparelho passa por checagem antes de ir pra prateleira.</p>
+          <strong>Bateria avaliada</strong>
+          <p>Você sabe as condições do aparelho antes de comprar.</p>
         </div>
+        <div class="rowlist-item reveal" style="--reveal-delay:180ms">
+          <strong>Garantia</strong>
+          <p>Mais tranquilidade depois da compra.</p>
+        </div>
+        <div class="rowlist-item reveal" style="--reveal-delay:240ms">
+          <strong>Atendimento humano</strong>
+          <p>Você fala diretamente com nossa equipe quando precisar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="wrap">
+      <div class="feature-panel reveal">
+        <h2>Procurando um iPhone?</h2>
+        <p>Do modelo que cabe no bolso ao modelo que você sempre quis.</p>
+        <div class="feature-tags">
+          <span class="feature-tag">Novos ou seminovos</span>
+          <span class="feature-tag">Testados</span>
+          <span class="feature-tag">Com garantia</span>
+        </div>
+        <a class="link-arrow" href="https://instagram.com/nivohub_" target="_blank" rel="noopener">Ver aparelhos disponíveis <span class="arrow">→</span></a>
       </div>
     </div>
   </section>
@@ -356,24 +430,63 @@ footer{padding:48px 0 36px;}
     <div class="wrap">
       <div class="section-head reveal">
         <span class="eyebrow">Como vai funcionar</span>
-        <h2>Você escolhe. A gente facilita.</h2>
+        <h2>Comprar com a Nivo Hub é simples.</h2>
       </div>
       <div class="rowlist">
         <div class="rowlist-item reveal" style="--reveal-delay:0ms">
           <span class="rowlist-num">01</span>
-          <h3>Confira o que está disponível</h3>
-          <p>Acompanhe nosso Instagram e veja os celulares e produtos disponíveis. Encontrou o que procura? É só chamar a gente.</p>
+          <h3>Veja os aparelhos disponíveis</h3>
+          <p>Acompanhe nosso Instagram para conferir os modelos disponíveis e as novidades que chegam.</p>
         </div>
         <div class="rowlist-item reveal" style="--reveal-delay:60ms">
           <span class="rowlist-num">02</span>
-          <h3>Fale direto pelo WhatsApp</h3>
-          <p>Tire suas dúvidas, consulte o preço e combine a forma de pagamento de maneira rápida e sem burocracia.</p>
-          <a class="link-arrow" style="margin-top:10px" href="https://wa.me/5547995106928?text=Oi%21%20Vi%20a%20Nivo%20Hub%20e%20queria%20saber%20mais." target="_blank" rel="noopener">Chamar no WhatsApp <span class="arrow">→</span></a>
+          <h3>Fale com a Nivo Hub</h3>
+          <p>Gostou de algum aparelho? Fale pelo WhatsApp, tire suas dúvidas e consulte as condições.</p>
         </div>
         <div class="rowlist-item reveal" style="--reveal-delay:120ms">
           <span class="rowlist-num">03</span>
-          <h3>Receba em casa ou retire na loja</h3>
-          <p>Escolha o que for mais conveniente: receba seu pedido em casa ou faça a retirada diretamente em nossa loja física.</p>
+          <h3>Combine a entrega</h3>
+          <p>Escolha a melhor opção para você e combine todos os detalhes diretamente com nossa equipe.</p>
+        </div>
+      </div>
+      <a class="btn reveal" style="margin-top:44px" href="https://wa.me/5547995106928?text=Oi%21%20Vi%20a%20Nivo%20Hub%20e%20queria%20saber%20mais." target="_blank" rel="noopener">Chamar no WhatsApp →</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap brand-statement">
+      <h2 class="lede reveal">Comprar tecnologia pode ser simples. Na Nivo Hub, você não precisa ficar procurando em dezenas de anúncios ou conversando com vendedores diferentes.</h2>
+      <div class="brand-steps">
+        <p class="reveal" style="--reveal-delay:0ms">Você encontra.</p>
+        <p class="reveal" style="--reveal-delay:60ms">Você pergunta.</p>
+        <p class="reveal" style="--reveal-delay:120ms">Você confere.</p>
+        <p class="reveal" style="--reveal-delay:180ms">Você compra.</p>
+      </div>
+      <p class="complement reveal">Com atendimento próximo e transparência em cada etapa.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="wrap">
+      <div class="feature-panel feature-split reveal">
+        <div>
+          <span class="eyebrow" style="margin-bottom:14px">Instagram</span>
+          <h2>Os aparelhos chegam primeiro no Instagram.</h2>
+          <p>Acompanhe os aparelhos disponíveis, novidades e lançamentos diretamente pelo nosso perfil.</p>
+          <a class="btn" style="margin-top:26px" href="https://instagram.com/nivohub_" target="_blank" rel="noopener">Acompanhar @nivohub_</a>
+        </div>
+        <div class="feature-aside">
+          <span class="handle">@nivohub_</span>
+          <span class="copy-handle">
+            <span style="font-size:13px;color:var(--ink-soft)">copiar usuário</span>
+            <button class="copy-btn" type="button" data-copy-text="@nivohub_" aria-label="Copiar @nivohub_">
+              <svg class="ic-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg>
+              <svg class="ic-loading" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" hidden><circle cx="12" cy="12" r="9" stroke-dasharray="40 16"/></svg>
+              <svg class="ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" hidden><polyline points="4 12 9 17 20 6"/></svg>
+              <svg class="ic-error" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" hidden><circle cx="12" cy="12" r="9"/><line x1="12" y1="7.5" x2="12" y2="13"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <span class="copy-toast" role="status" aria-live="polite"></span>
+            </button>
+          </span>
         </div>
       </div>
     </div>
@@ -382,10 +495,13 @@ footer{padding:48px 0 36px;}
   <div class="cta-band">
     <div class="wrap reveal" style="display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;">
       <div>
-        <h2>Seja um dos primeiros a saber quando a loja abrir.</h2>
-        <p>Sem spam — só o aviso de lançamento e as novidades que chegarem na loja.</p>
+        <h2>A Nivo Hub está chegando.</h2>
+        <p>Siga agora e seja um dos primeiros a conhecer os aparelhos disponíveis e as novidades da loja.</p>
       </div>
-      <a class="btn" href="https://instagram.com/nivohub_" target="_blank" rel="noopener">Seguir @nivohub_</a>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;">
+        <a class="btn" href="https://instagram.com/nivohub_" target="_blank" rel="noopener">Seguir @nivohub_</a>
+        <a class="btn btn-secondary" href="https://wa.me/5547995106928?text=Oi%21%20Vi%20a%20Nivo%20Hub%20e%20queria%20saber%20mais." target="_blank" rel="noopener">Falar pelo WhatsApp</a>
+      </div>
     </div>
   </div>
 </main>
@@ -395,7 +511,10 @@ footer{padding:48px 0 36px;}
     <div class="foot-grid">
       <div class="foot-brand">
         <img src="data:image/jpeg;base64,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" alt="Nivo Hub" />
-        <div class="foot-word">Nivo Hub</div>
+        <div>
+          <div class="foot-word">Nivo Hub</div>
+          <div class="foot-tag">Tecnologia, smartphones e acessórios.</div>
+        </div>
       </div>
       <div class="foot-links">
         <span class="copy-handle">
@@ -502,8 +621,7 @@ footer{padding:48px 0 36px;}
     });
   }
 
-  var copyBtn = document.querySelector('.copy-btn');
-  if (copyBtn) {
+  document.querySelectorAll('.copy-btn').forEach(function(copyBtn){
     var icCopy = copyBtn.querySelector('.ic-copy');
     var icLoading = copyBtn.querySelector('.ic-loading');
     var icCheck = copyBtn.querySelector('.ic-check');
@@ -532,7 +650,7 @@ footer{padding:48px 0 36px;}
         revertTimer = setTimeout(function(){ setState('idle'); }, 2000);
       });
     });
-  }
+  });
 })();
 </script>
 </body>
