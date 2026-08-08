@@ -218,6 +218,22 @@ section{padding:88px 0;}
 .trust-intro{font-size:16.5px;color:var(--ink-soft);max-width:52ch;margin:0;}
 .trust-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:36px 32px;margin-top:44px;}
 
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:24px;opacity:0;transition:opacity var(--dur-slow) var(--ease-out);}
+.products-grid.is-ready{opacity:1;}
+.product-card{border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;background:var(--tint);transition:border-color var(--dur-base) var(--ease-out);}
+.product-card:hover{border-color:rgba(255,255,255,0.22);}
+.product-card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:var(--line-soft);}
+.product-body{padding:20px;display:flex;flex-direction:column;gap:6px;flex:1;}
+.product-cond{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-mute);}
+.product-name{font-family:'Archivo',sans-serif;font-weight:700;font-size:17px;margin:0;}
+.product-desc{font-size:13.5px;color:var(--ink-soft);flex:1;margin:0;line-height:1.55;}
+.product-price{font-family:'Archivo',sans-serif;font-weight:800;font-size:19px;color:var(--ink);margin-top:2px;}
+.product-cta{margin-top:10px;align-self:flex-start;}
+
+.products-empty{grid-column:1/-1;border:1px solid var(--line);border-radius:16px;padding:48px 32px;text-align:center;}
+.products-empty p{margin:0 0 22px;color:var(--ink-soft);font-size:15px;}
+.products-loading{grid-column:1/-1;color:var(--ink-mute);font-family:'IBM Plex Mono',monospace;font-size:13px;padding:32px 0;text-align:center;}
+
 .feature-panel{border:1px solid var(--line);border-radius:20px;padding:52px;}
 .feature-panel h2{font-size:clamp(22px,2.8vw,30px);margin-bottom:14px;max-width:22ch;}
 .feature-panel p{margin:0;color:var(--ink-soft);font-size:15.5px;max-width:48ch;}
@@ -376,6 +392,16 @@ footer{padding:48px 0 36px;}
           <p>Apple Watch, Galaxy Watch e outros dispositivos para acompanhar sua rotina.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Disponível agora</span>
+        <h2>Aparelhos em estoque.</h2>
+      </div>
+      <div id="productsGrid" class="products-grid"></div>
     </div>
   </section>
 
@@ -651,6 +677,80 @@ footer{padding:48px 0 36px;}
       });
     });
   });
+
+  var PRODUCTS_SHEET_ID = '';
+  var PRODUCTS_SHEET_NAME = 'Produtos';
+  var grid = document.getElementById('productsGrid');
+
+  function money(v){
+    var n = typeof v === 'number' ? v : parseFloat(v);
+    if (isNaN(n)) return v;
+    return n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  }
+
+  function waLinkFor(name){
+    var msg = 'Oi! Tenho interesse no ' + name + '.';
+    return 'https://wa.me/5547995106928?text=' + encodeURIComponent(msg);
+  }
+
+  function esc(s){
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+      return { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c];
+    });
+  }
+
+  function showReady(html){
+    grid.innerHTML = html;
+    grid.classList.remove('is-ready');
+    setTimeout(function(){ grid.classList.add('is-ready'); }, 30);
+  }
+
+  function renderEmpty(){
+    showReady(
+      '<div class="products-empty">' +
+        '<p>Novos aparelhos chegando em breve. Siga no Instagram pra ser avisado assim que abrir.</p>' +
+        '<a class="btn" href="https://instagram.com/nivohub_" target="_blank" rel="noopener">Acompanhar @nivohub_</a>' +
+      '</div>'
+    );
+  }
+
+  function renderProducts(items){
+    if (!items.length) { renderEmpty(); return; }
+    var html = items.map(function(p){
+      var img = p['Imagem'] ? '<img src="' + esc(p['Imagem']) + '" alt="' + esc(p['Nome']) + '" loading="lazy" />' : '';
+      var price = (p['Preço'] !== null && p['Preço'] !== '') ? '<span class="product-price">' + money(p['Preço']) + '</span>' : '';
+      var cond = p['Condição'] ? '<span class="product-cond">' + esc(p['Condição']) + (p['Categoria'] ? ' · ' + esc(p['Categoria']) : '') + '</span>' : '';
+      var desc = p['Descrição'] ? '<p class="product-desc">' + esc(p['Descrição']) + '</p>' : '';
+      return '<div class="product-card">' + img +
+        '<div class="product-body">' + cond +
+        '<h3 class="product-name">' + esc(p['Nome']) + '</h3>' +
+        desc + price +
+        '<a class="btn btn-sm product-cta" href="' + waLinkFor(p['Nome'] || '') + '" target="_blank" rel="noopener">Perguntar no WhatsApp</a>' +
+        '</div></div>';
+    }).join('');
+    showReady(html);
+  }
+
+  if (grid) {
+    if (!PRODUCTS_SHEET_ID) {
+      renderEmpty();
+    } else {
+      grid.innerHTML = '<div class="products-loading">Carregando aparelhos…</div>';
+      fetch('https://docs.google.com/spreadsheets/d/' + PRODUCTS_SHEET_ID + '/gviz/tq?tqx=out:json&sheet=' + encodeURIComponent(PRODUCTS_SHEET_NAME))
+        .then(function(r){ return r.text(); })
+        .then(function(text){
+          var json = JSON.parse(text.substring(text.indexOf('{'), text.lastIndexOf('}') + 1));
+          var cols = json.table.cols.map(function(c){ return c.label; });
+          var rows = (json.table.rows || []).map(function(row){
+            var obj = {};
+            cols.forEach(function(label, i){ obj[label] = row.c[i] ? row.c[i].v : null; });
+            return obj;
+          }).filter(function(p){ return String(p['Disponível'] || '').trim().toUpperCase() === 'SIM'; });
+          renderProducts(rows);
+        })
+        .catch(function(){ renderEmpty(); });
+    }
+  }
 })();
 </script>
 </body>
