@@ -393,7 +393,8 @@ section{padding:120px 0;position:relative}
 .direct .ico{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:rgba(58,160,255,.14);color:var(--sky);flex:none}
 .direct .ico svg{width:20px;height:20px}
 .direct b{display:block;font-size:15px}
-.direct small{display:block;color:var(--mute);font-size:13.5px}
+.direct small{display:block;color:var(--mute);font-size:13.5px;overflow-wrap:anywhere}
+.direct a>span:last-child{min-width:0}
 form{display:grid;gap:18px}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .field label,.field legend{display:block;font-size:14px;font-weight:700;margin-bottom:8px;padding:0}
@@ -461,7 +462,7 @@ footer{padding:70px 0 40px;border-top:1px solid var(--line);margin-top:120px}
   .faq-grid{grid-template-columns:1fr;gap:20px}
   .sec-grid{grid-template-columns:minmax(0,1fr);gap:36px}
   .scan{position:relative;top:0}
-  .contact{grid-template-columns:1fr;padding:40px 28px}
+  .contact{grid-template-columns:minmax(0,1fr);padding:40px 28px}
   .steps{grid-template-columns:1fr 1fr;row-gap:44px}
   .track{display:none}
 }
@@ -473,6 +474,8 @@ footer{padding:70px 0 40px;border-top:1px solid var(--line);margin-top:120px}
   .mobile-menu a{text-decoration:none;padding:14px 12px;border-radius:12px;font-weight:600}
   .mobile-menu a:hover{background:rgba(255,255,255,.04)}
   .mobile-menu .btn{margin-top:8px}
+  .foot-links{gap:0 22px}
+  .foot-links a,.copy.legal a{display:inline-flex;align-items:center;min-height:44px}
 }
 @media (max-width:640px){
   body{font-size:16px}
@@ -502,6 +505,11 @@ footer{padding:70px 0 40px;border-top:1px solid var(--line);margin-top:120px}
   .plan{padding:30px 24px}
   .scan{padding:22px}
   .shield{width:68px;height:68px}
+  .copy-row{margin-top:28px}
+}
+@media (max-width:400px){
+  .site-feats{grid-template-columns:1fr 1fr}
+  .site-feat:nth-child(3){display:none}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}
